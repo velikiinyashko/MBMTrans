@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MBMTrans.Models.Auto;
 
 namespace MBMTrans.Models
 {
@@ -13,8 +14,13 @@ namespace MBMTrans.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
+        public string Phone { get; set; }
+
+        public string Verificated { get; set; }
+        public string Token { get; set; }
 
         public List<Order> Orders { get; set; }
+        public List<Driver> Drivers { get; set; }
 
         public int? RoleId { get; set; }
         public Role Role { get; set; }
@@ -25,6 +31,7 @@ namespace MBMTrans.Models
         public Account()
         {
             Orders = new List<Order>();
+            Drivers = new List<Driver>();
         }
     }
 }

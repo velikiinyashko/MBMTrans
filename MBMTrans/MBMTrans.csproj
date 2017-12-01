@@ -8,8 +8,8 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.9-dmr" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,10 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
-    <Folder Include="Areas\Cabinet\Controllers\" />
     <Folder Include="Areas\Cabinet\Data\" />
-    <Folder Include="Areas\Cabinet\Models\" />
     <Folder Include="Areas\Cabinet\Views\" />
   </ItemGroup>
 

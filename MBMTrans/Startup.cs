@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MBMTrans.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MBMTrans
 {
@@ -24,7 +26,13 @@ namespace MBMTrans
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<>
+            services.AddDbContext<BaseContext>(options =>
+            options.UseMySql(@"server=db.admmebel.ru;user=mbm;password=YcfetazDYgQcW5wfy5yj79kk;database=MBMTrans;port=8228"));
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/cabinet/login");
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
