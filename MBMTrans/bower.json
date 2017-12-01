@@ -1,0 +1,13 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "jquery-validation": "1.17.0",
+    "font-awesome": "Font-Awesome#v4.7.0",
+    "bootstrap": "v4.0.0-beta",
+    "popper.js": "v1.13.0-next"
+  },
+  "resolutions": {
+    "bootstrap": "v4.0.0-beta"
+  }
+}
