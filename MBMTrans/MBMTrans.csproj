@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Cabinet\Data\" />
+    <Folder Include="Areas\Cabinet\Views\Home\" />
   </ItemGroup>
 
 </Project>

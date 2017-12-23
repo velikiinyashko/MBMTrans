@@ -1,0 +1,27 @@
+﻿@using MBMTrans.Models
+@model IEnumerable<Catalog>
+@{
+    ViewData["Title"] = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Catalog</h2>
+<div class="row">
+    <div class="col-sm-4">
+        @for (int i = 0; i == 3; i++)
+        {
+
+            <div class="card" style="width: 20rem">
+                <h4 class="card-header text-center">
+                    Name
+                </h4>
+                <img class="card-img-top" src="~/images/1.jpg" alt="Card image cap" />
+                <div class="card-body">
+                    <p class="card-text"> test</p>
+                    <a asp-action="ViewCar" asp-controller="Home" asp-route-id="" class="card-link btn btn-primary">Подробнее...</a>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

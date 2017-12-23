@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MBMTrans.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MBMTrans.Controllers
 {
@@ -32,6 +33,15 @@ namespace MBMTrans.Controllers
         public async Task<IActionResult> Create(Order order)
         {
             return View();
+        }
+
+        public async Task<IActionResult> Catalogs()
+        {
+            List<Catalog> catalog = await _context.Catalogs.Include(Mft => Mft.Manufacture)
+                .Include(Mod => Mod.Model)
+                .Include(Color => Color.Color)
+                .ToListAsync();
+            return View(catalog);
         }
 
         public IActionResult About()

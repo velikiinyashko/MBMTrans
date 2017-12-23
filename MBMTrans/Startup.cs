@@ -27,7 +27,7 @@ namespace MBMTrans
         {
             services.AddMvc();
             services.AddDbContext<BaseContext>(options =>
-            options.UseMySql(@"server=db.admmebel.ru;user=mbm;password=YcfetazDYgQcW5wfy5yj79kk;database=MBMTrans;port=8228"));
+            options.UseMySql(@"server=db.admmebel.ru;user=mbm;password=FA422aS5;database=MBMTrans;port=8228"));
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/cabinet/login");

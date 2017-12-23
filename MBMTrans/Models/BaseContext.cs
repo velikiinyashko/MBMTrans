@@ -17,5 +17,12 @@ namespace MBMTrans.Models
         public DbSet<Role> Roles { get; set; }
         public DbSet<Company> Companys { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Tariff> Tariffs { get; set; }
+        public DbSet<Catalog> Catalogs { get; set; }
+        public DbSet<Auto.Car> Cars { get; set; }
+        public DbSet<Auto.Manufacture> Manufactures { get; set; }
+        public DbSet<Auto.Model> Models { get; set; }
+        public DbSet<Auto.Color> Colors { get; set; }
+        public DbSet<Auto.Driver> Drivers { get; set; }
     }
 }

@@ -59,9 +59,33 @@ namespace MBMTrans.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("ColorId");
+
+                    b.Property<int?>("ManufactureId");
+
+                    b.Property<int?>("ModelId");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Car");
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("ManufactureId");
+
+                    b.HasIndex("ModelId");
+
+                    b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("MBMTrans.Models.Auto.Color", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colors");
                 });
 
             modelBuilder.Entity("MBMTrans.Models.Auto.Driver", b =>
@@ -81,9 +105,70 @@ namespace MBMTrans.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.HasIndex("CarId");
+                    b.HasIndex("CarId")
+                        .IsUnique();
 
-                    b.ToTable("Driver");
+                    b.ToTable("Drivers");
+                });
+
+            modelBuilder.Entity("MBMTrans.Models.Auto.Manufacture", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Manufactures");
+                });
+
+            modelBuilder.Entity("MBMTrans.Models.Auto.Model", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("ManufactureId");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManufactureId");
+
+                    b.ToTable("Models");
+                });
+
+            modelBuilder.Entity("MBMTrans.Models.Catalog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("ColorId");
+
+                    b.Property<string>("Comments");
+
+                    b.Property<string>("Image");
+
+                    b.Property<int?>("ManufactureId");
+
+                    b.Property<int?>("ModelId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Period");
+
+                    b.Property<decimal>("Price");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("ManufactureId");
+
+                    b.HasIndex("ModelId");
+
+                    b.ToTable("Catalogs");
                 });
 
             modelBuilder.Entity("MBMTrans.Models.Company", b =>
@@ -112,6 +197,8 @@ namespace MBMTrans.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("AccountId");
+
+                    b.Property<DateTime>("DateTime");
 
                     b.Property<string>("EndAddress");
 
@@ -149,11 +236,11 @@ namespace MBMTrans.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Price");
+                    b.Property<decimal>("Price");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tariff");
+                    b.ToTable("Tariffs");
                 });
 
             modelBuilder.Entity("MBMTrans.Models.Account", b =>
@@ -167,6 +254,21 @@ namespace MBMTrans.Migrations
                         .HasForeignKey("RoleId");
                 });
 
+            modelBuilder.Entity("MBMTrans.Models.Auto.Car", b =>
+                {
+                    b.HasOne("MBMTrans.Models.Auto.Color", "Color")
+                        .WithMany("Cars")
+                        .HasForeignKey("ColorId");
+
+                    b.HasOne("MBMTrans.Models.Auto.Manufacture", "Manufacture")
+                        .WithMany("Cars")
+                        .HasForeignKey("ManufactureId");
+
+                    b.HasOne("MBMTrans.Models.Auto.Model", "Model")
+                        .WithMany("Cars")
+                        .HasForeignKey("ModelId");
+                });
+
             modelBuilder.Entity("MBMTrans.Models.Auto.Driver", b =>
                 {
                     b.HasOne("MBMTrans.Models.Account", "Account")
@@ -174,8 +276,30 @@ namespace MBMTrans.Migrations
                         .HasForeignKey("AccountId");
 
                     b.HasOne("MBMTrans.Models.Auto.Car", "Car")
+                        .WithOne("Driver")
+                        .HasForeignKey("MBMTrans.Models.Auto.Driver", "CarId");
+                });
+
+            modelBuilder.Entity("MBMTrans.Models.Auto.Model", b =>
+                {
+                    b.HasOne("MBMTrans.Models.Auto.Manufacture", "Manufacture")
+                        .WithMany("Models")
+                        .HasForeignKey("ManufactureId");
+                });
+
+            modelBuilder.Entity("MBMTrans.Models.Catalog", b =>
+                {
+                    b.HasOne("MBMTrans.Models.Auto.Color", "Color")
                         .WithMany()
-                        .HasForeignKey("CarId");
+                        .HasForeignKey("ColorId");
+
+                    b.HasOne("MBMTrans.Models.Auto.Manufacture", "Manufacture")
+                        .WithMany()
+                        .HasForeignKey("ManufactureId");
+
+                    b.HasOne("MBMTrans.Models.Auto.Model", "Model")
+                        .WithMany()
+                        .HasForeignKey("ModelId");
                 });
 
             modelBuilder.Entity("MBMTrans.Models.Order", b =>
