@@ -10,7 +10,26 @@ namespace MBMTrans.Controllers
 {
     public class HomeController : Controller
     {
+        private BaseContext _context;
+
+        public HomeController(BaseContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Order order)
         {
             return View();
         }
@@ -32,6 +51,15 @@ namespace MBMTrans.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public decimal Summary(JsonObject json, decimal Prices)
+        {
+            decimal price = 0;
+
+
+
+            return price;
         }
     }
 }

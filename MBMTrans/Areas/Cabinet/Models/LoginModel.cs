@@ -8,7 +8,6 @@ namespace MBMTrans.Areas.Cabinet.Models
 {
     public class LoginModel
     {
-        public int Id { get; set; }
         [Required]
         public string Login { get; set; }
         [Required]

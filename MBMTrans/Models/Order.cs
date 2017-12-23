@@ -8,6 +8,7 @@ namespace MBMTrans.Models
     public class Order
     {
         public int Id { get; set; }
+        public DateTime DateTime { get; set; }
         public string StartAddress { get; set; }
         public string EndAddress { get; set; }
         public decimal Symmary { get; set; }
