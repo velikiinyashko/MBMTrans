@@ -1,0 +1,46 @@
+﻿@using MBMTrans.ViewModels
+@model LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>Вход</title>
+</head>
+<body>
+    <div class="form-group body-content">
+        <form asp-action="Login" asp-controller="Account" asp-antiforgery="true">
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div>
+                <div class="form-group">
+                    <label class="form-control-label" asp-for="Login">Имя пользователя</label>
+                    <input type="text" class="form-control" asp-for="Login" />
+                    <span asp-validation-for="Login"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" asp-for="Password">Пароль</label>
+                    <input type="password" class="form-control" asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-user"></i> Login</button>
+                        <a class="btn btn-info" asp-action="Registration" asp-controller="Account">Registration</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/popper.js/dist/popper.js"></script>
+</body>
+</html>

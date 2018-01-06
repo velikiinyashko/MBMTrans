@@ -1,4 +1,5 @@
-﻿
+﻿@using MBMTrans.Models
+@model IEnumerable<Catalog>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Cabinet/Views/Shared/_Cabinet.cshtml";
@@ -6,3 +7,37 @@
 
 <h2>Index</h2>
 
+<div class="table">
+    <table class="table">
+        <thead class="nav-tabs">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Period</th>
+                <th>Manufacture</th>
+                <th>Color</th>
+                <th>Comment</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="tab-content">
+            @foreach (var cat in Model)
+            {
+            <tr>
+                <td>@cat.Id</td>
+                <td>@cat.Name</td>
+                <td>@cat.Period</td>
+                <td>@cat.Manufacture</td>
+                <td>@cat.Color</td>
+                <td>@cat.Comments</td>
+                <td>
+                    <div class="form-inline">
+                        <a class="btn btn-primary" asp-action="Update" asp-controller="Catalogs"><i class="fa fa-upload"></i> Update</a>
+                        <a class="btn btn-danger" asp-action="Remove" asp-controller="Catalogs"><i class="fa fa-upload"></i> Remove</a>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

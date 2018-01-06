@@ -30,7 +30,7 @@ namespace MBMTrans
             options.UseMySql(@"server=db.admmebel.ru;user=mbm;password=FA422aS5;database=MBMTrans;port=8228"));
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
-                options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/cabinet/login");
+                options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
             });
         }
@@ -49,6 +49,8 @@ namespace MBMTrans
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

@@ -1,0 +1,41 @@
+﻿@using MBMTrans.Models
+@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Заказы @User.Identity.Name</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Date</th>
+            <th>StartAddress</th>
+            <th>EndOrder</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var o in Model)
+        {
+            if (o != null)
+            {
+                <tr>
+                    <td>
+                        No orders
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>@o.DateTime</td>
+                    <td>@o.StartAddress</td>
+                    <td>@o.EndAddress</td>
+                    <td>@o.Symmary</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MBMTrans.Areas.Cabinet.Models;
 using MBMTrans.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MBMTrans.Areas.Cabinet.Controllers
 {
@@ -19,27 +20,9 @@ namespace MBMTrans.Areas.Cabinet.Controllers
             _context = context;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
-            return View();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                Account account = await _context.Accounts
-                    .Include(u => u.Role)
-                    .FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
-                return View();
-            }
             return View();
         }
     }

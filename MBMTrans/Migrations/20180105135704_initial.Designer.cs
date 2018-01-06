@@ -11,7 +11,7 @@ using System;
 namespace MBMTrans.Migrations
 {
     [DbContext(typeof(BaseContext))]
-    [Migration("20171223122505_initial")]
+    [Migration("20180105135704_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
