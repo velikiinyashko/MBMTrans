@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace MBMTrans.Areas.Cabinet.Controllers
 {
     [Area("Cabinet")]
+    [Authorize]
     public class HomeController : Controller
     {
         private BaseContext _context;
@@ -20,7 +21,6 @@ namespace MBMTrans.Areas.Cabinet.Controllers
             _context = context;
         }
 
-        [Authorize]
         public IActionResult Index()
         {
             return View();

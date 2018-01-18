@@ -1,35 +1,17 @@
-﻿@using MBMTrans.Models
-@model Order
+﻿
 @{
     ViewData["Title"] = "Home Page";
 }
 
+<div id="carusel">
+    @{ await Html.RenderPartialAsync("_Carusel");}
+</div>
+
+
 <div>
+    @{ await Html.RenderPartialAsync("_Order");}
+</div>
 
-    <div class="jumbotron jumbotron">
-        <h1 class="display-4">Добро пожаловать!</h1>
-        <p class="lead">Приветствуем на сайте компании МБМ транс<br/>
-        услуги компании...
-        </p>
-    </div>
+    <div id="yandex" style="height: 300px; width:auto;">
 
-    <div>
-        <div class="container">
-        </div>
-            <form>
-                <div class="form-group">
-                    <label class="form-control-label" asp-for="StartAddress"></label>
-                    <input class="form-control" type="text" asp-for="StartAddress" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" asp-for="EndAddress"></label>
-                    <input class="form-control" type="text" asp-for="EndAddress" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" asp-for="Tariff"></label>
-
-                </div>
-                <input type="submit" class="btn btn-primary" value="Оформить" />
-            </form>
-        </div>
     </div>

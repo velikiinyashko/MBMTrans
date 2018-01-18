@@ -1,0 +1,62 @@
+﻿@*<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" asp-action="Index" asp-controller="Home">МБМ транс</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav-menu-right mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Index" asp-controller="Orders" asp-route-name="@User.Identity.Name">Заказ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Catalogs" asp-controller="Home">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Map" asp-controller="Home"><i class="fa fa-map"></i> Карта</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="About" asp-controller="Home"><i class="fa fa-globe"></i> Контакты</a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="nav-item dropdown">
+                        <a class="btn btn-outline-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-user"></i>
+                            @User.Identity.Name
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-action="Index" asp-controller="Account" asp-route-name="@User.Identity.Name"><i class="fa fa-id-card"></i> Профиль</a>
+                            <a class="dropdown-item" asp-action="Index" asp-controller="Orders" asp-route-name="@User.Identity.Name"><i class="fa fa-folder"></i> Заказы</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-area="Cabinet"><i class="fa fa-cog"></i> Кабинет</a>
+                            }
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-action="Logout" asp-controller="Account"><i class="fa fa-sign-out-alt"></i>Выход</a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="nav-item dropdown">
+                        <a class="btn btn-outline-success dropdown-toggle singin" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-sign-in-alt"></i> Вход
+                        </a>
+                        <div class="login dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </nav>*@
+
+<ul class="nav-menu">
+    <li class="nav-elem-right"><a href="default.asp">Home</a></li>
+    <li><a href="news.asp">News</a></li>
+    <li><a href="contact.asp">Contact</a></li>
+    <li><a href="about.asp">About</a></li>
+</ul> 

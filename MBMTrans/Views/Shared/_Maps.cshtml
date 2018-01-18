@@ -1,0 +1,21 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div id="yandex">
+
+</div>
+
+<script>
+    ymaps.ready(init);
+    var yandexmap;
+
+    function init() {
+
+        yandexmap = new ymaps.Map("yandex", {
+            center: [56.03171867, 92.91917125],
+            zoom: 10
+        });
+
+    }
+</script>

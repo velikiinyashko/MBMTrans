@@ -18,10 +18,10 @@
     <tbody>
         @foreach (var o in Model)
         {
-            if (o != null)
+            if (o == null)
             {
                 <tr>
-                    <td>
+                    <td colspan="4">
                         No orders
                     </td>
                 </tr>

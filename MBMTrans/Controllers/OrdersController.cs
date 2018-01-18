@@ -32,16 +32,26 @@ namespace MBMTrans.Controllers
                 }
                 return NotFound();
             }
-            return NotFound();
+            return NoContent();
         }
 
-        public IActionResult Create()
+        public IActionResult Create(Order order)
         {
+            if (ModelState.IsValid)
+            {
+
+            }
             return View();
         }
 
-        public IActionResult Delete(int? Id)
+        public async Task<IActionResult> Delete(int? Id)
         {
+            Order order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == Id);
+            if(order != null)
+            {
+                _context.Orders.Remove(order);
+                await _context.SaveChangesAsync();
+            }
             return View();
         }
     }

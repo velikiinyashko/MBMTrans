@@ -1,0 +1,25 @@
+﻿@using MBMTrans.Models
+@model Order
+
+<div class="container">
+</div>
+<form class="text-light">
+    <div class="form-group">
+        <label class="form-control-label" asp-for="StartAddress"></label>
+        <input id="autocomplete" name="Origin" onfocus="geolocate()" class="form-control" type="text" asp-for="StartAddress" />
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" asp-for="EndAddress"></label>
+        <input class="form-control" type="text" asp-for="EndAddress" />
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" asp-for="Tariff"></label>
+
+    </div>
+    <input type="submit" id="GetRes" class="btn btn-primary" value="Оформить" />
+</form>
+    </div>
+
+<div>
+    <button id="GetRes" onclick="getDistance()" class="btn btn-secondary">Test</button>
+</div>

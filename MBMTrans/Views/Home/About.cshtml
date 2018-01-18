@@ -1,7 +1,17 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
+<br/>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
 <p>Use this area to provide additional information.</p>
+<div> @*id="YandexMap" onload="LoadMaps">*@
+    @{ await Html.RenderPartialAsync("_Maps");}
+</div>
+
+<script>
+    function LoadMaps() {
+        $('#YandexMap').load('/home/maps');
+    }
+</script>

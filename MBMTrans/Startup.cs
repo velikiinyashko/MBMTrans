@@ -33,6 +33,7 @@ namespace MBMTrans
                 options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
             });
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +52,8 @@ namespace MBMTrans
             app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseCors(bulder => bulder.AllowAnyOrigin());
 
             app.UseMvc(routes =>
             {

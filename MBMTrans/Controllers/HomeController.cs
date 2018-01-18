@@ -71,5 +71,30 @@ namespace MBMTrans.Controllers
 
             return price;
         }
+
+        public IActionResult Maps()
+        {
+            return PartialView("_Maps");
+        }
+
+        public IActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
+
+        public IActionResult Singin()
+        {
+            return PartialView("_Singin");
+        }
+
+        public IActionResult Order()
+        {
+            return PartialView("_Order");
+        }
+
+        public IActionResult Carusel()
+        {
+            return PartialView("_Carusel");
+        }
     }
 }
